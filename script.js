@@ -1,6 +1,22 @@
 const resetButton = document.querySelector('#reset-button');
 const parentDiv   = document.querySelector('#parent-container');
 
+
+
+function draw() {
+    drawDivs = document.querySelectorAll('.draw-div');
+    drawDivs.forEach(element => {
+        // console.log(`ELEMENT ID: ${element.id}`);
+        element.onmouseover = function () {
+            element.style.backgroundColor = "black";
+        };
+        // element.addEventListener('click', function() {
+
+        //     element.style.backgroundColor = "black";
+        // });
+    });
+}
+
 /*
 If no grid has been set up yet, set gridBool to false
 make sure there is no border to the parentDiv
@@ -11,6 +27,7 @@ When the button is pushed, create the border
 */
 
 function newGrid() {
+    let exit = true;
     // Print to the console when a new grid is created
     console.log('button pressed');
     // Show the border of the container
@@ -50,17 +67,18 @@ function newGrid() {
     }
     parentDiv.style.gridTemplateColumns = gridTemplate;
     parentDiv.style.gridTemplateRows    = gridTemplate;
+
+    draw();
 }
 
-// if any draw-div is sent here, change the 
-// color of the container
-function isHovered(element) {
 
-}
 
 resetButton.addEventListener('click', newGrid);
 
-drawDivs = document.querySelectorAll('.draw-div');
-drawDivs.forEach(element => {
 
-});
+// get all the draw-divs and give them an event handler 
+// to see when the user places and removes the mouse from a 
+// container - 
+// when this happens, change the background
+// of the element
+
