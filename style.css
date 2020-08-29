@@ -31,8 +31,7 @@ header {
 #color-container {
     display: flex;
     justify-content: center;
-    margin-left: 10vw;
-    margin-right: 10vw;
+    margin-top: 1vh;
     width: 100vw;
 }
 
