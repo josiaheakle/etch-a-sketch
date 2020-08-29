@@ -1,20 +1,58 @@
 const resetButton = document.querySelector('#reset-button');
+const resetDiv    = document.querySelector("#reset-container")
 const parentDiv   = document.querySelector('#parent-container');
+const colorDiv    = document.querySelector("#color-container")
+
+let colorChoice = "black";
+
+const colorPickBtn = document.createElement('button');
+colorPickBtn.style.border = "1px solid gray";
+colorPickBtn.style.width = "18vw";
+colorPickBtn.style.height = "8vh";
+colorPickBtn.style.backgroundColor = "rgba(0, 185, 0, 0.568)";
+colorPickBtn.textContent = "Change Color"
+
+const redButton = document.createElement('button');
+redButton.style.border = "1px solid gray";
+redButton.style.width = "8vw";
+redButton.style.height = "8vw";
+redButton.style.backgroundColor = "red";
 
 
+
+// when the player presses the color button,
+// append the color buttons to the color div
+// when new color is chosen, remove them
+function chooseColor() {
+
+
+
+}
 
 function draw() {
-    drawDivs = document.querySelectorAll('.draw-div');
-    drawDivs.forEach(element => {
-        // console.log(`ELEMENT ID: ${element.id}`);
-        element.onmouseover = function () {
-            element.style.backgroundColor = "black";
-        };
-        // element.addEventListener('click', function() {
 
-        //     element.style.backgroundColor = "black";
-        // });
+
+    // add functionality to only draw when the mouse button is clicked
+    let canDraw = false;
+    drawDivs = document.querySelectorAll('.draw-div');
+
+    // if the mouse button is pressed - the user will be drawing
+    parentDiv.onmousedown = function() {
+        canDraw = true;
+    };
+    parentDiv.onmouseup = function() {
+        canDraw = false;
+    }
+    drawDivs.forEach(element => {
+        element.onmouseover = function () {
+
+            if (canDraw) {
+                element.style.backgroundColor = colorChoice;
+            }
+            
+        };
     });
+
 }
 
 /*
@@ -32,6 +70,7 @@ function newGrid() {
     console.log('button pressed');
     // Show the border of the container
     parentDiv.style.border = "1px gray solid";
+    resetDiv.appendChild(colorPickBtn);
 
     // Remove all the old containers 
     const oldDivs = parentDiv.querySelectorAll('div');
@@ -71,8 +110,14 @@ function newGrid() {
     draw();
 }
 
+/*
+    border: 1px solid gray;
+    width: 18vw;
+    height: 8vh;
+    background-color: rgba(0, 185, 0, 0.568);
+*/
 
-
+// if the user pressed new grid - all hell breaks loose 
 resetButton.addEventListener('click', newGrid);
 
 

@@ -21,9 +21,19 @@ header {
 
 #reset-button {
     border: 1px solid gray;
+    margin-left: 2vw;
+    margin-right: 2vw;  
     width: 18vw;
     height: 8vh;
     background-color: rgba(0, 185, 0, 0.568);
+}
+
+#color-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    width: 100vw;
 }
 
 #reset-container {
